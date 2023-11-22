@@ -13,9 +13,9 @@ public class WeatherController {
 
     private static final Logger logger = LoggerFactory.getLogger(WeatherController.class);
     private static final ByteArrayOutputStream consoleOutput = new ByteArrayOutputStream();
+    private static WeatherService weatherService = new WeatherService(); // Adicionado como um campo estático
 
     public static void main(String[] args) {
-        WeatherService weatherService = new WeatherService();
         Scanner scanner = new Scanner(System.in);
 
         logger.info("Prompting user for city name");
@@ -36,8 +36,6 @@ public class WeatherController {
         logToConsole("City: " + weatherData.getCity());
         logToConsole("Description: " + weatherData.getDescription());
         logToConsole("Temperature: " + weatherData.getTemperature() + "°C");
-
-
 
         if (weatherData.getTemperature() < 0) {
             logger.error("Temperature is below freezing: {}°C", weatherData.getTemperature());

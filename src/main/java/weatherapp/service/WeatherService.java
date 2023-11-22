@@ -43,6 +43,10 @@ public class WeatherService {
 
         return weatherData;
     }
+
+    public double getTemperature(String testCity) {
+        return 0;
+    }
 }
 
 
